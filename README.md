@@ -20,15 +20,11 @@ This repository contains my daily lab reports, notes, screenshots, and observati
 - Routing
 - Signoff
 
-## Repository Structure
+## Day-1 Inception of open-source EDA, OpenLANE and Sky130 PDK
+Overview
 
-```
-Day-1/
-Day-2/
-Day-3/
-Day-4/
-Day-5/
-```
+Today I learned the fundamentals of ASIC (Application-Specific Integrated Circuit) design and the complete RTL-to-GDSII design flow using open-source EDA tools. I also understood how software is converted into hardware through the RISC-V Instruction Set Architecture (ISA) and how modern chips are physically designed and manufactured.
+
 
 ## Author
 
