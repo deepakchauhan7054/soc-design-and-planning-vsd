@@ -37,10 +37,10 @@ Connect chip pads to the package pins.
 Enable communication between the chip and the external world.
 
 ## 3. Foundry, IPs and Macros
-# Foundry
+## Foundry
 A Foundry is a semiconductor manufacturing facility where integrated circuits are fabricated on silicon wafers.
 
-# Foundry IPs
+## Foundry IPs
 Foundry IPs are specialized blocks that require detailed knowledge of the semiconductor manufacturing process.
 Examples include:
 SRAM
@@ -49,13 +49,55 @@ ADC
 DAC
 High-speed I/O cells
 
-# Macros
+## Macros
 Macros are pre-designed digital blocks that can be reused in multiple chip designs.
 Examples:
 Memory blocks
 Arithmetic units
 Processor cores
 Digital controllers
+
+## 4. From Software Application to Hardware (RISC-V ISA)
+A software program goes through several stages before it executes on hardware.
+C program -> Compiler-> RISC-V Assembly-> Assembler-> Machine Code (Binary)-> RTL Implementation-> Logic Synthesis-> Place & Route-> Physical Layout (GDSII)
+
+The Instruction Set Architecture (ISA) acts as the interface between software and hardware.
+
+The compiler converts high-level code into RISC-V instructions, which are then implemented using RTL and eventually fabricated as hardware.
+
+## 5. SoC Design Using OpenLANE
+OpenLANE is an open-source RTL-to-GDSII flow developed to automate ASIC design.
+It integrates multiple open-source EDA tools into a single design flow.
+Main stages include:
+RTL Design
+Logic Synthesis
+Floorplanning
+Power Distribution Network (PDN)
+Placement
+Clock Tree Synthesis (CTS)
+Routing
+Timing Analysis
+Physical Verification
+GDSII Generation
+## 6. Simplified RTL to GDSII Flow
+RTL Design
+      ↓
+Logic Synthesis
+      ↓
+Floorplanning
+      ↓
+Power Planning
+      ↓
+Placement
+      ↓
+Clock Tree Synthesis
+      ↓
+Routing
+      ↓
+DRC & LVS Verification
+      ↓
+GDSII Generation
+
 
 
 
