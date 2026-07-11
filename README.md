@@ -107,7 +107,7 @@ make mount
 ./flow.tcl -interactive
 package require openlane 0.9
 ```
-<img width="1265" height="360" alt="1 new" src="https://github.com/user-attachments/assets/c1dd084d-5825-4afc-8c97-2b9478b8d2a0" />
+<img width="1265" height="289" alt="new" src="https://github.com/user-attachments/assets/54846ccc-f69c-49e2-9938-2fc09643bc48" />
 <img width="1271" height="766" alt="Screenshot from 2026-07-11 11-44-17" src="https://github.com/user-attachments/assets/221c3b61-7e6b-4a5a-a8f5-125630f194c5" />
 
 ### Preparing the Design
