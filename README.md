@@ -132,7 +132,30 @@ Flop ratio = (No. of D Flip Flops)/(Total No. of Cells)
            ~ 10.84%
 ```
 
+## Day 2 – Floorplanning and Placement
+Chip Floorplanning
 
+Floorplanning is the first physical design stage after synthesis. It determines the dimensions of the chip and reserves space for different design components before placement.
+
+Two important parameters in floorplanning are:
+### Core Utilization
+
+Core utilization represents the percentage of the core area occupied by the standard cells.
+```
+
+Core Utilization= (Area occupied by Standard Cells)\(Total Core Area)
+
+```
+### Aspect Ratio
+Aspect ratio is defined as:
+```
+Aspect Ratio= Core Height\Core Width
+```
+
+
+	​
+
+	​
 
 ## Author
 
