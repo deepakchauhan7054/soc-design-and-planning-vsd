@@ -98,6 +98,15 @@ DRC & LVS Verification
       ↓
 GDSII Generation
 
+## Lab — Running OpenLANE for picorv32a
+Setting Up and Invoking OpenLANE
+The very first step is to navigate to the OpenLANE working directory and launch the tool in interactive mode, which lets us run each stage step-by-step.
+```
+cd/Desktop/work/tools/openlane_working_dir/openlane
+make mount
+./flow.tcl -interactive
+package require openlane 0.9
+```
 
 
 
