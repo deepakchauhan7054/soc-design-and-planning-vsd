@@ -124,6 +124,7 @@ run_synthesis
 <img width="1278" height="767" alt="Screenshot from 2026-07-11 14-15-11" src="https://github.com/user-attachments/assets/4e058a90-e483-4119-a5d8-1a17f4fd5657" />
 <img width="1278" height="768" alt="Screenshot from 2026-07-11 14-15-46" src="https://github.com/user-attachments/assets/abbf515a-411e-4872-a68a-bd75f2f1ecdf" />
 After synthesis completes, we can calculate the flop ratio — a useful sanity check:
+
 ```
 Flop ratio = (No. of D Flip Flops)/(Total No. of Cells)
            = 1613/14876
