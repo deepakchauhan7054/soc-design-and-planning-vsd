@@ -99,7 +99,7 @@ DRC & LVS Verification
 GDSII Generation
 
 ## Lab — Running OpenLANE for picorv32a
-Setting Up and Invoking OpenLANE
+### Setting Up and Invoking OpenLANE
 The very first step is to navigate to the OpenLANE working directory and launch the tool in interactive mode, which lets us run each stage step-by-step.
 ```
 cd/Desktop/work/tools/openlane_working_dir/openlane
@@ -107,8 +107,29 @@ make mount
 ./flow.tcl -interactive
 package require openlane 0.9
 ```
-<img width="1265" height="753" alt="Screenshot from 2026-07-11 11-36-31" src="https://github.com/user-attachments/assets/a4ec9b62-7d91-4359-9b8e-06cec889a90d" />
+<img width="1265" height="360" alt="1 new" src="https://github.com/user-attachments/assets/c1dd084d-5825-4afc-8c97-2b9478b8d2a0" />
+<img width="1271" height="766" alt="Screenshot from 2026-07-11 11-44-17" src="https://github.com/user-attachments/assets/221c3b61-7e6b-4a5a-a8f5-125630f194c5" />
 
+### Preparing the Design
+Before running synthesis, we prepare the design to merge the cell LEF and technology LEF files, and set up the run directory.
+```
+prep -design picorv32a
+```
+<img width="1278" height="763" alt="Screenshot from 2026-07-11 14-01-34" src="https://github.com/user-attachments/assets/eb6be11b-47d5-47fd-b27f-999f9b7978ac" />
+
+### Running Synthesis
+```
+run_synthesis
+```
+<img width="1278" height="767" alt="Screenshot from 2026-07-11 14-15-11" src="https://github.com/user-attachments/assets/4e058a90-e483-4119-a5d8-1a17f4fd5657" />
+<img width="1278" height="768" alt="Screenshot from 2026-07-11 14-15-46" src="https://github.com/user-attachments/assets/abbf515a-411e-4872-a68a-bd75f2f1ecdf" />
+After synthesis completes, we can calculate the flop ratio — a useful sanity check:
+```
+Flop ratio = (No. of D Flip Flops)/(Total No. of Cells)
+           = 1613/14876
+           = 0.1084
+           ~ 10.84%
+```
 
 
 
