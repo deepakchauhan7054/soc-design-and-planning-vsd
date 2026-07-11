@@ -151,11 +151,59 @@ Aspect ratio is defined as:
 ```
 Aspect Ratio= Core Height\Core Width
 ```
+### Pre-Placed Cells
 
+Certain blocks in a chip are too large or complex to be placed automatically. These blocks are known as pre-placed cells or fixed macros.
 
-	​
+Examples include:
 
-	​
+SRAM
+PLL
+Analog IPs
+RISC-V processor macros
+Memory controllers
+
+These cells are positioned manually before standard cell placement to achieve better connectivity, power distribution, and routing efficiency.
+
+## Decoupling Capacitors
+
+Decoupling capacitors are inserted close to large macros and high-switching circuits.
+
+Their primary functions are:
+
+Supply instantaneous current during switching
+Reduce voltage fluctuations
+Minimize power supply noise
+Improve overall power integrity
+
+They act as local energy storage elements and help maintain a stable supply voltage during rapid switching events.
+
+## Power Planning
+
+Power planning ensures that every cell in the design receives a stable power supply with minimal voltage drop.
+
+A typical power distribution network consists of:
+
+Power Rings around the core
+Horizontal and vertical Power Straps
+VDD and VSS metal rails
+Standard cell power rails
+
+Proper power planning is essential for reliable chip operation.
+
+## Pin Placement
+
+Input and output pins are placed around the boundary of the chip.
+
+Pin placement is performed by considering:
+
+Signal connectivity
+Routing distance
+Timing requirements
+Congestion
+
+Pins communicating with nearby logic are generally placed closer to the corresponding functional blocks to reduce wire length and improve performance.
+## Lab — Floorplan and Placement
 
 ## Author
 
