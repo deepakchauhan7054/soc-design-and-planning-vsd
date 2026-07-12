@@ -205,27 +205,35 @@ Congestion
 Pins communicating with nearby logic are generally placed closer to the corresponding functional blocks to reduce wire length and improve performance.
 ## Lab — Floorplan and Placement
 ### Running Floorplan
+
 ```
 run_floorplan
 ```
+
 <img width="1918" height="922" alt="Screenshot from 2026-07-11 22-01-57" src="https://github.com/user-attachments/assets/247c21c9-ef6d-44d7-84d1-464f4de05a8b" />
 After this completes, we can inspect the DEF file that was generated:
+
 ```
 cd results/floorplan/
 less picorv32a.def
 ```
+
 ### Viewing the Floorplan in Magic
+
 ```
 magic -T /home/vsduser/Desktop/work/tools/openLane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.floorplan.def &
 ```
+
 <img width="1919" height="921" alt="Screenshot from 2026-07-11 22-03-12" src="https://github.com/user-attachments/assets/b876fe4c-c7bc-4fb5-b161-2f53fdd6afa9" />
 <img width="1278" height="765" alt="Screenshot from 2026-07-11 23-01-18" src="https://github.com/user-attachments/assets/b7807dd7-54ef-4453-b810-64d7e6df7a46" />
 <img width="1026" height="399" alt="Screenshot from 2026-07-12 07-42-35" src="https://github.com/user-attachments/assets/63386abc-e53f-40ad-b7ec-a5c3fbbdfe3e" />
 <img width="1920" height="923" alt="Screenshot from 2026-07-12 11-36-31" src="https://github.com/user-attachments/assets/5d57521e-53ac-4e7c-b4ab-f795d56ea48e" />
 ### Running Placement
+
 ```
 run_placement
 ```
+
 <img width="1437" height="725" alt="Screenshot from 2026-07-12 12-00-52" src="https://github.com/user-attachments/assets/b0bae852-80a8-45ce-8684-e0062a7905bc" />
 Standard cells legally placed
 <img width="1920" height="923" alt="Screenshot from 2026-07-12 12-02-51" src="https://github.com/user-attachments/assets/e9907efa-d1c1-4f29-8884-8520c44af1cf" />
