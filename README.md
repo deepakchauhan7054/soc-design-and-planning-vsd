@@ -1,8 +1,5 @@
 # soc-design-and-planning-vsd
 VSD SoC Design and Planning Workshop using OpenLANE and Sky130 PDK
-# SoC Design and Planning using OpenLANE
-
-Welcome to my GitHub repository for the **VSD SoC Design and Planning Workshop**.
 
 ## About
 
@@ -240,6 +237,44 @@ Standard cells legally placed
 
 
 ## Day 3 — Design and Characterisation of Library Cells using Magic & ngspice
+
+## CMOS Inverter — SPICE Deck
+To characterise a standard cell, we write a SPICE netlist describing the PMOS and NMOS transistors along with their W/L ratios, supply voltage, input stimulus, and load capacitance.
+
+Key parameters we extract from simulation:
+
+   Rise time — 20% to 80% of output rising edge
+   Fall time — 80% to 20% of output falling edge
+   Propagation delay — 50% input to 50% output
+
+## 16-Mask CMOS Fabrication Process (Brief Overview)
+The chip fabrication follows a sequence of about 16 mask steps:
+
+Substrate selection (p-type, high resistivity)
+Active region creation (field oxidation + Si3N4 mask)
+N-well and P-well formation (ion implantation)
+Gate oxide growth
+Polysilicon gate deposition
+Source/Drain implantation (LDD + halo)
+Contacts and metal layers
+Final passivation
+
+## Lab — Cloning and Characterising a Custom Inverter Cell
+# Cloning the Standard Cell Repository
+```
+git clone https://github.com/nickson-jose/vsdstdcelldesign.git
+```
+```
+magic -T sky130A.tech sky130_inv.mag &
+```
+
+<img width="1456" height="726" alt="Screenshot from 2026-07-12 14-27-57" src="https://github.com/user-attachments/assets/afa9b299-969e-4656-958c-ff3289f7dc9b" />
+<img width="1920" height="923" alt="Screenshot from 2026-07-12 22-08-37" src="https://github.com/user-attachments/assets/85920365-8003-4199-ac63-8e6c4c61526a" />
+<img width="1920" height="923" alt="Screenshot from 2026-07-12 22-09-56" src="https://github.com/user-attachments/assets/5e44aa09-8a5e-4b52-a113-90c6ef64a74c" />
+<img width="1487" height="748" alt="Screenshot from 2026-07-12 22-12-46" src="https://github.com/user-attachments/assets/3af0ca13-0aa2-4876-b473-ec36ffe8c975" />
+<img width="1469" height="726" alt="Screenshot from 2026-07-12 22-15-24" src="https://github.com/user-attachments/assets/9a38edfd-e33f-442e-b0bd-8e327b4d7a8a" />
+<img width="1453" height="738" alt="Screenshot from 2026-07-12 22-16-07" src="https://github.com/user-attachments/assets/7ee1bd6b-7284-4b51-ad85-5be8b925df54" />
+<img width="1866" height="823" alt="Screenshot from 2026-07-12 22-28-01" src="https://github.com/user-attachments/assets/e3bb91ce-1a3d-4585-9276-b794a4a4d7c9" />
 
 
 ## Author
