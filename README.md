@@ -314,6 +314,7 @@ Screenshot of generated plot
 
 <img width="1920" height="1080" alt="Screenshot from 2026-07-13 23-17-00" src="https://github.com/user-attachments/assets/b2e18019-4e56-4ae8-837f-3f3f3e273167" />
 
+```
 From the waveform, measure rise time, fall time, and propagation delay values. Rise transition time calculation
 Rise transition time = Time taken for output to rise to 80% - Time taken for output to rise to 20%
 20% of output = 660 mV
@@ -321,6 +322,7 @@ Rise transition time = Time taken for output to rise to 80% - Time taken for out
 Fall transition time = Time taken for output to fall to 20% - Time taken for output to fall to 80%
 20% of output = 660 mV
 80% of output = 2.64 V
+```
 
 <img width="1920" height="1080" alt="Screenshot from 2026-07-13 23-31-50" src="https://github.com/user-attachments/assets/955b5202-279a-4ddb-96c7-b09a3c97084a" />
 <img width="1920" height="1080" alt="Screenshot from 2026-07-13 23-32-02" src="https://github.com/user-attachments/assets/2a793b8c-fd9b-4f61-8e54-feafe7150ecb" />
