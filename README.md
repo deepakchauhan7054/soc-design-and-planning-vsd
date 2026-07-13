@@ -276,6 +276,61 @@ magic -T sky130A.tech sky130_inv.mag &
 <img width="1453" height="738" alt="Screenshot from 2026-07-12 22-16-07" src="https://github.com/user-attachments/assets/7ee1bd6b-7284-4b51-ad85-5be8b925df54" />
 <img width="1866" height="823" alt="Screenshot from 2026-07-12 22-28-01" src="https://github.com/user-attachments/assets/e3bb91ce-1a3d-4585-9276-b794a4a4d7c9" />
 
+# Extracting SPICE Netlist from Magic
+Inside the tkcon console:
+
+
+```
+extract all
+ext2spice cthresh 0 rthresh 0
+ext2spice
+```
+<img width="992" height="351" alt="Screenshot from 2026-07-12 22-38-36 (1)" src="https://github.com/user-attachments/assets/f6fa05bc-661b-4eef-a8b0-5418dd9be2af" />
+
+Screenshot of created spice file
+
+<img width="1920" height="923" alt="Screenshot from 2026-07-12 22-38-57 (1)" src="https://github.com/user-attachments/assets/f6e4cd2f-e303-4ab7-a7aa-f294d672d54b" />
+
+Editing the spice model file for analysis through simulation.
+Measuring unit distance in layout grid
+
+<img width="1700" height="726" alt="Screenshot from 2026-07-12 22-58-25 (1)" src="https://github.com/user-attachments/assets/20b6dff7-28d9-4720-867c-c2a09ceb81d0" />
+
+Final edited spice file ready for ngspice simulation
+
+<img width="1920" height="923" alt="Screenshot from 2026-07-12 23-37-03 (1)" src="https://github.com/user-attachments/assets/e4c115dd-1cc4-469d-9f13-46bb62ab6a5f" />
+
+# Running ngspice Simulation
+```
+ngspice sky130_inv.spice
+```
+```
+plot y vs time a
+```
+
+<img width="1920" height="1080" alt="Screenshot from 2026-07-13 23-16-18" src="https://github.com/user-attachments/assets/2be4ba21-d95b-4204-befb-a85ab8b67c55" />
+
+Screenshot of generated plot
+
+<img width="1920" height="1080" alt="Screenshot from 2026-07-13 23-17-00" src="https://github.com/user-attachments/assets/b2e18019-4e56-4ae8-837f-3f3f3e273167" />
+
+From the waveform, measure rise time, fall time, and propagation delay values. Rise transition time calculation
+Rise transition time = Time taken for output to rise to 80% - Time taken for output to rise to 20%
+20% of output = 660 mV
+80% of output = 2.64 V Fall transition time calculation
+Fall transition time = Time taken for output to fall to 20% - Time taken for output to fall to 80%
+20% of output = 660 mV
+80% of output = 2.64 V
+
+<img width="1920" height="1080" alt="Screenshot from 2026-07-13 23-31-50" src="https://github.com/user-attachments/assets/955b5202-279a-4ddb-96c7-b09a3c97084a" />
+<img width="1920" height="1080" alt="Screenshot from 2026-07-13 23-32-02" src="https://github.com/user-attachments/assets/2a793b8c-fd9b-4f61-8e54-feafe7150ecb" />
+<img width="1920" height="1080" alt="Screenshot from 2026-07-13 23-35-37" src="https://github.com/user-attachments/assets/40342258-65a1-4233-b23b-1bc9e5fc61bb" />
+<img width="1920" height="1080" alt="Screenshot from 2026-07-13 23-35-52" src="https://github.com/user-attachments/assets/faa8ab95-4b3d-434d-a2b2-7b570dff0324" />
+
+
+
+
+
 
 ## Author
 
