@@ -48,7 +48,25 @@ Screenshots of each stage have been included in the **Screenshots** folder.
 
 ---
 
-> The RTL-to-GDS flow completed successfully without any major errors.
+## Errors Faced
+
+### Error: Missing Standard Cell Library
+
+While executing the ORFS flow using the following command:
+
+```bash
+make DESIGN_CONFIG=./designs/scl180fs120/gcd/config.mk
+```
+
+the execution stopped with the following error:
+
+```text
+make: *** No rule to make target 'flow/platforms/scl180fs120/lib/tsl18fs120_scl_ss.nominal.lib', needed by 'results/scl180fs120/gcd/base/1_1_yosys_canonicalize.rtllil'. Stop.
+```
+
+### Cause
+
+The required standard cell timing library (`tsl18fs120_scl_ss.nominal.lib`) was missing or the library path was not correctly configured. Because this library is required during synthesis, the ORFS flow could not continue.
 
 ---
 
