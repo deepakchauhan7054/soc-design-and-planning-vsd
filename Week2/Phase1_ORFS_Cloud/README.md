@@ -48,12 +48,6 @@ Screenshots of each stage have been included in the **Screenshots** folder.
 
 ---
 
-## Runtime
-
-**Total Runtime:** *(Write your runtime here, for example: 14 minutes 32 seconds.)*
-
----
-
 > The RTL-to-GDS flow completed successfully without any major errors.
 
 ---
