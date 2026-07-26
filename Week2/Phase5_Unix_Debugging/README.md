@@ -64,22 +64,6 @@ cat Makefile
 less Makefile
 ```
 
----
-
-### 5. Environment Variables
-Displayed and created environment variables using `echo` and `export`.
-
-Examples:
-
-```bash
-echo $PDK_ROOT
-```
-
-```bash
-export TEST=ORFS
-echo $TEST
-```
-
 
 ---
 
