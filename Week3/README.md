@@ -115,4 +115,3 @@ After completing this assignment, I gained experience with:
 
 **Deepak Chauhan | VLSI Enthusiast**
 
-VSD RTL-to-GDS Program
