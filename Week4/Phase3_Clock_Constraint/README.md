@@ -26,3 +26,4 @@ set_input_delay -clock [get_clocks {wb_clk_i}] 0.0000 [get_ports {wb_clk_i}]
 - set_clock_uncertainty: Allocates $250\text{ ps}$ margin for clock jitter and setup/hold skew.
 - set_input_delay / set_output_delay: Sets a $2.0\text{ ns}$ ($20\%\text{ of } T_{\text{clk}}$) boundary delay for off-chip external path transit.
 
+<img width="1272" height="437" alt="image" src="https://github.com/user-attachments/assets/4aa0297f-b5c5-4974-abff-1591a708bef8" />
