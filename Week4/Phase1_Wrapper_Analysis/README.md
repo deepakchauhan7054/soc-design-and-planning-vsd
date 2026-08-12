@@ -29,3 +29,38 @@ __user_project_wrapper (Top Module)
 
 
 
+
+### 4. Explanation of the Module Hierarchy
+#### 1. user_project_wrapper
+
+user_project_wrapper is the top-level module of the design. It is responsible for integrating the different functional blocks and connecting them to the external user-project interfaces.
+
+File:
+```
+__user_project_wrapper.v
+```
+#### 2. debug_regs
+
+debug_regs is instantiated directly inside the top-level wrapper. It provides the debug register functionality required by the design.
+
+File:
+```
+debug_regs.v
+```
+#### 3. user_project_la_example
+
+user_project_la_example is a logic-analyzer example block connected to the wrapper. It is instantiated only when the LA_TESTING preprocessor macro is enabled.
+
+File:
+```
+__user_project_la_example.v
+```
+#### 4. user_project_gpio_example
+
+user_project_gpio_example provides the GPIO example functionality. It is conditionally instantiated when the GPIO_TESTING preprocessor macro is enabled.
+
+File:
+```
+__user_project_gpio_example.v
+```
+
