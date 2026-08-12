@@ -28,6 +28,8 @@ __user_project_wrapper (Top Module)
 | 5 | `__user_project_gpio_example.v` | `user_project_gpio_example` | GPIO test module | **Conditional: `GPIO_TESTING`** |
 
 
+<img width="1280" height="800" alt="image" src="https://github.com/user-attachments/assets/37920844-43db-4299-b8cd-d67d5bafe5cf" />
+
 
 
 ### 4. Explanation of the Module Hierarchy
