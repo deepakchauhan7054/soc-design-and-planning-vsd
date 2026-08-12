@@ -12,8 +12,8 @@ The top-level module `__user_project_wrapper.v` connects custom user blocks to t
 __user_project_wrapper (Top Module)
 ├── user_project_la_example (instantiated as: la_testing)
 ├── user_project_gpio_example (instantiated as: gpio_testing)
-└── debug_regs (instantiated as: debug)```
-
+└── debug_regs (instantiated as: debug)
+```
 
 <img width="1273" height="255" alt="image" src="https://github.com/user-attachments/assets/1c986f14-3666-4d01-98f4-1fbc1fcb50e6" />
 
