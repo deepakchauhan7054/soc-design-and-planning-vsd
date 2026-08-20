@@ -517,10 +517,12 @@ gen_pdn
 ```
 <img width="1280" height="768" alt="pdn1" src="https://github.com/user-attachments/assets/8b9c9742-f251-4936-a933-38092a57a3fb" />
 <img width="1280" height="768" alt="pdn2" src="https://github.com/user-attachments/assets/d2cb6231-124a-462e-8fde-8f3e230f329e" />
+
 #### 2. Running Routing
 Signal routing connects all logic cell pins, clock nets, and I/O ports according to the design connectivity rules. The flow executes in two stages:
 -Global Routing: Handled by FastRoute to partition the layout into coarse Global Routing Cells (G-cells) and allocate routing channels.
 -Detailed Routing: Performed by TritonRoute to assign actual physical metal tracks following PDK design rules.
+
 ```
 run_routing
 ```
