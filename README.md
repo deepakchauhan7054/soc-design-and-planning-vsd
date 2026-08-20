@@ -332,10 +332,215 @@ Fall transition time = Time taken for output to fall to 20% - Time taken for out
 
 
 
+## Day 4 — Pre-Layout Timing Analysis and Clock Tree Synthesis
+
+### LEF Files and Standard Cell Port Guidelines
+
+**LEF (Library Exchange Format)** is an abstract representation of a standard cell used by physical-design tools. It contains information about the cell dimensions, pins, metal layers, and routing obstructions.
+
+Important guidelines:
+
+- Input and output ports should align with the horizontal and vertical routing tracks.
+- Cell width and height should follow the technology routing pitch.
+- Proper port alignment is required for successful placement and routing.
+
+### Static Timing Analysis (STA)
+
+**Static Timing Analysis (STA)** is used to verify whether all timing paths in a digital design satisfy their timing constraints.
+
+Important concepts:
+
+- **Setup Time:** Data must be stable before the active clock edge.
+- **Hold Time:** Data must remain stable after the active clock edge.
+- **Setup Slack = Required Time − Arrival Time**
+- Positive slack indicates that the timing requirement is satisfied.
+- Negative slack indicates a timing violation.
+- **Clock Uncertainty** accounts for clock jitter and other variations.
+- **OCV (On-Chip Variation)** models process, voltage and temperature variations.
+- **CRPR (Clock Reconvergence Pessimism Removal)** reduces unnecessary pessimism in clock timing analysis.
+
+### Clock Tree Synthesis (CTS)
+
+Clock Tree Synthesis creates a balanced clock distribution network from the clock source to all sequential elements.
+
+The main objectives of CTS are:
+
+- Minimize clock skew
+- Control clock latency
+- Maintain acceptable clock slew
+- Balance clock arrival times
+
+After CTS, setup and hold timing must be checked again because clock buffers and clock delays have been introduced.
+
+---
+
+### Lab — Custom Cell Integration and Pre-CTS STA
+
+#### 1. Viewing Routing Tracks
+
+The `tracks.info` file provides the routing-track information required for standard-cell placement and routing.
+
+```bash
+cat tracks.info
+```
+#### 2. Setting Magic Grid
+
+The Magic grid was configured according to the Sky130 routing requirements.
+```
+grid 0.46um 0.34um 0.23um 0.17um
+```
+<img width="959" height="600" alt="Screenshot from 2026-08-20 10-36-28" src="https://github.com/user-attachments/assets/b197d5f5-5121-4caa-b699-411fbfa5ea56" />
+#### 3. LEF Generation
+
+The LEF file was generated from the custom standard-cell layout using Magic/TkCon.
+<img width="980" height="345" alt="Screenshot from 2026-08-20 10-43-22" src="https://github.com/user-attachments/assets/6b25c42f-b638-445c-969f-cad6f63027b2" />
+
+#### 4. Copying LEF and LIB Files
+
+The generated LEF and required Liberty files were copied into the picorv32a design source directory.
+```
+cp sky130_vsdinv.lef /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/src/
+cp sky130_fd_sc_hd__*.lib /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/src/
+```
+#### 5. Updating config.tcl
+The design configuration was updated to include the custom LEF, characterization timing libraries, and relaxed clock constraints to resolve timing violations.
+```
+# config.tcl updates
+set ::env(CLOCK_PERIOD) "24.000"
+set ::env(SYNTH_STRATEGY) "DELAY 0"
+set ::env(SYNTH_BUFFERING) 1
+set ::env(SYNTH_SIZING) 1
+set ::env(PL_RESIZER_DESIGN_OPTIMIZATIONS) 1
+set ::env(PL_RESIZER_TIMING_OPTIMIZATIONS) 1
+set ::env(GLB_RESIZER_TIMING_OPTIMIZATIONS) 1
+
+# Custom cell library inclusion
+set ::env(LIB_SYNTH) "$::env(OPENLANE_ROOT)/designs/picorv32a/src/sky130_fd_sc_hd__typical.lib"
+set ::env(LIB_FASTEST) "$::env(OPENLANE_ROOT)/designs/picorv32a/src/sky130_fd_sc_hd__fast.lib"
+set ::env(LIB_SLOWEST) "$::env(OPENLANE_ROOT)/designs/picorv32a/src/sky130_fd_sc_hd__slow.lib"
+set ::env(LIB_TYPICAL) "$::env(OPENLANE_ROOT)/designs/picorv32a/src/sky130_fd_sc_hd__typical.lib"
+set ::env(EXTRA_LEFS) [glob $::env(OPENLANE_ROOT)/designs/$::env(DESIGN_NAME)/src/*.lef]
+```
+<img width="1280" height="768" alt="Screenshot from 2026-08-20 11-28-50" src="https://github.com/user-attachments/assets/c564da4b-b8c5-4f4e-8937-d83fdf2fc3dd" />
+
+#### 5. Custom Cell Placement
+The custom standard cell sky130_vsdinv was placed and legalized alongside standard library cells during global and detailed placement.
+```
+prep -design picorv32a -tag run_clean_timing -overwrite
+run_synthesis
+run_floorplan
+detailed_placement
+```
+<img width="1280" height="768" alt="Screenshot from 2026-08-20 10-53-53" src="https://github.com/user-attachments/assets/0460d03b-cf65-4ff4-9369-04afd9819a71" />
+<img width="1280" height="768" alt="Screenshot from 2026-08-20 11-00-39" src="https://github.com/user-attachments/assets/ce9c96d8-e1c7-47d0-ae29-aee297679dbe" />
+<img width="1280" height="768" alt="Screenshot from 2026-08-20 11-04-15" src="https://github.com/user-attachments/assets/be8dc470-c79e-47b9-ba46-41590cacd995" />
+<img width="1280" height="768" alt="Screenshot from 2026-08-20 11-04-15" src="https://github.com/user-attachments/assets/c128cf11-8ce2-4d47-a6ba-bc379b8a0b09" />
+
+#### 6. Running OpenSTA — Pre-CTS Timing
+Pre-CTS timing analysis was conducted with an ideal clock network to identify high-fanout nets, slew violations, and baseline setup margins before buffer insertion.
+
+Ideal Clock Latency: 0.00 ns
+Pre-CTS Setup Slack: Analyzed for critical data paths.
+
+#### 7. Running Clock Tree Synthesis (CTS)
+Clock Tree Synthesis was executed using TritonCTS to build a balanced clock distribution network and minimize clock skew across all sequential elements.
+```
+run_cts
+```
+-Root Buffer: Built from clock root pin clk.
+-Clock Skew: Checked to ensure balanced tree insertion.
+<img width="1280" height="768" alt="cts1" src="https://github.com/user-attachments/assets/d5f5277a-e40a-4782-b516-1eaa0cdff878" />
+<img width="1280" height="768" alt="cts2" src="https://github.com/user-attachments/assets/4dfaa04c-f052-4b27-a406-1e3b6a4caca1" />
+<img width="1280" height="768" alt="cts3" src="https://github.com/user-attachments/assets/da6c55e3-7895-44cd-9f2c-68c56ea30015" />
+
+#### 8. Post-CTS Timing Analysis Using OpenROAD
+Post-CTS static timing analysis was performed in OpenROAD with a propagated clock model to account for real clock network delays and cross-corner variations.
+```
+openroad
+read_lef ./designs/picorv32a/runs/run_clean_timing/tmp/merged_unpadded.lef
+read_def ./designs/picorv32a/runs/run_clean_timing/results/cts/picorv32a.cts.def
+read_liberty /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog ./designs/picorv32a/runs/run_clean_timing/results/synthesis/picorv32a.synthesis.v
+link_design picorv32a
+read_sdc ./designs/picorv32a/src/picorv32a.sdc
+set_propagated_clock [all_clocks]
+```
+#### 9. Generating Timing Report
+Detailed timing paths and slack reports were generated to verify full timing closure.
+```
+report_checks -path_delay min_max -fields {slew trans net cap input_pins} -format full_clock_expanded -digits 4
+```
+<img width="1280" height="768" alt="Screenshot from 2026-08-20 11-08-00" src="https://github.com/user-attachments/assets/2f6d7443-a75e-45be-9083-8be54f81b0ea" />
+##### Signoff Results
+
+-Setup Slack: +4.34 ns (MET)
+-Worst Negative Slack (WNS): 0.00 ns
+-Total Negative Slack (TNS): 0.00 ns
+
+## Day 5 — Final RTL to GDSII using TritonRoute & OpenSTA
+
+### Routing — Global vs Detailed
+
+Routing is the process of creating physical connections between all the cells and pins in the design.
+
+Routing is performed in two main stages:
+
+1. **Global Routing (FastRoute)** — Determines approximate routing paths for all nets while considering congestion and routing resources.
+2. **Detailed Routing (TritonRoute)** — Converts the global routing guides into actual metal wires and vias while following the design rules.
+
+---
+
+### SPEF and Post-Route STA
+
+After routing, the physical wires introduce resistance and capacitance into the design.
+
+These parasitic values are extracted into a **SPEF (Standard Parasitic Exchange Format)** file.
+
+The extracted parasitics are used during post-route Static Timing Analysis to obtain more accurate timing results.
+
+The final timing analysis checks:
+
+- Setup timing
+- Hold timing
+- Clock skew
+- Clock latency
+- Net delay
+- Parasitic effects
+
+---
+
+## Lab — Power Distribution Network and Routing
+#### 1. Generating Power Distribution Network (PDN)
+The Power Distribution Network is synthesized after Clock Tree Synthesis (CTS) to deliver continuous power (VDD) and ground (VSS) supplies across the entire standard cell array, keeping IR drop to a minimum.
+```
+gen_pdn
+```
+<img width="1280" height="768" alt="pdn1" src="https://github.com/user-attachments/assets/8b9c9742-f251-4936-a933-38092a57a3fb" />
+<img width="1280" height="768" alt="pdn2" src="https://github.com/user-attachments/assets/d2cb6231-124a-462e-8fde-8f3e230f329e" />
+#### 2. Running Routing
+Signal routing connects all logic cell pins, clock nets, and I/O ports according to the design connectivity rules. The flow executes in two stages:
+-Global Routing: Handled by FastRoute to partition the layout into coarse Global Routing Cells (G-cells) and allocate routing channels.
+-Detailed Routing: Performed by TritonRoute to assign actual physical metal tracks following PDK design rules.
+```
+run_routing
+```
+<img width="1280" height="768" alt="routing1" src="https://github.com/user-attachments/assets/ff2df929-6222-4333-a47e-ba72847fdee6" />
+<img width="1280" height="768" alt="routing2" src="https://github.com/user-attachments/assets/a7fd0679-b93b-4d64-9fdc-f5a444adedae" />
+<img width="1280" height="768" alt="routing3" src="https://github.com/user-attachments/assets/f0f9da50-fae1-4726-8bd9-fb8981fedb02" />
+<img width="1280" height="768" alt="routing4" src="https://github.com/user-attachments/assets/e456c7da-2e3e-4231-8b9d-4d2d15472412" />
+
+#### 3.Final GDSII Stream-Out & DRC Signoff
+Once routing is completed, the layout DEF is streamed out into the final industry-standard GDSII format using Magic VLSI layout tool for manufacturing signoff.
+
+```
+run_magic
+run_magic_drc
+```
+Visualizing Layout in Magic
+```
+magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech \
+  /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/run_clean_timing/results/magic/picorv32a.gds &
+```
 
 
-## Author
 
-**Deepak Chauhan**
-
-B.Tech | VLSI Enthusiast
