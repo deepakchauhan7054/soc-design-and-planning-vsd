@@ -541,6 +541,8 @@ Visualizing Layout in Magic
 magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech \
   /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/run_clean_timing/results/magic/picorv32a.gds &
 ```
+<img width="1280" height="768" alt="design1" src="https://github.com/user-attachments/assets/8e18d622-81e2-4544-9cb2-aa61fa5a5aa7" />
+<img width="1280" height="768" alt="design2" src="https://github.com/user-attachments/assets/966db715-1586-43ef-8967-41ec0f13a83c" />
 
 
 
