@@ -1,0 +1,5 @@
+=== Standalone GLS Test: gpio_mgmt ===
+PDK: SkyWater 130nm (sky130_fd_sc_hd)
+Netlist: caravel_mgmt_soc_litex/verilog/gl/mgmt_core_wrapper.v
+Status: PASSED
+VCD Generated: gpio_mgmt.vcd (8.8 GB)
