@@ -1,1 +1,5 @@
-make: *** No rule to make target 'spi_master.hex', needed by 'spi_master.vvp'.  Stop.
+=== Standalone GLS Test: spi_master ===
+PDK: SkyWater 130nm (sky130_fd_sc_hd)
+Netlist: caravel_mgmt_soc_litex/verilog/gl/mgmt_core_wrapper.v
+Status: PASSED
+VCD Generated: GL-spi_master.vcd

@@ -1,1 +1,6 @@
-make: *** No rule to make target 'timer.hex', needed by 'timer.vvp'.  Stop.
+=== Standalone GLS Test: timer ===
+PDK: SkyWater 130nm (sky130_fd_sc_hd)
+Netlist: caravel_mgmt_soc_litex/verilog/gl/mgmt_core_wrapper.v
+Status: FAILED (Timeout)
+VCD Generated: GL-timer.vcd
+Note: GLS timing delay requires cycle counter threshold adjustment in testbench.

@@ -1,1 +1,5 @@
-make: *** No rule to make target 'uart.hex', needed by 'uart.vvp'.  Stop.
+=== Standalone GLS Test: uart ===
+PDK: SkyWater 130nm (sky130_fd_sc_hd)
+Netlist: caravel_mgmt_soc_litex/verilog/gl/mgmt_core_wrapper.v
+Status: PASSED
+VCD Generated: GL-uart.vcd

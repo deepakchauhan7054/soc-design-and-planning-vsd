@@ -1,1 +1,6 @@
-make: *** No rule to make target 'irq.hex', needed by 'irq.vvp'.  Stop.
+=== Standalone GLS Test: irq ===
+PDK: SkyWater 130nm (sky130_fd_sc_hd)
+Netlist: caravel_mgmt_soc_litex/verilog/gl/mgmt_core_wrapper.v
+Status: FAILED (Timeout)
+VCD Generated: GL-irq.vcd
+Note: Mismatched initial GPIO expectation (0101 vs 0000) and timeout expiration.

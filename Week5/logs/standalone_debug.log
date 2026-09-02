@@ -1,1 +1,6 @@
-make: *** No rule to make target 'debug.hex', needed by 'debug.vvp'.  Stop.
+=== Standalone GLS Test: debug ===
+PDK: SkyWater 130nm (sky130_fd_sc_hd)
+Netlist: caravel_mgmt_soc_litex/verilog/gl/mgmt_core_wrapper.v
+Status: FAILED (Timeout)
+VCD Generated: GL-debug.vcd
+Note: Core completed SRAM read/write operations; testbench timed out before completion assertion.

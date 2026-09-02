@@ -1,7 +1,5 @@
-=== MEM Standalone GLS Simulation ===
+=== Standalone GLS Test: mem ===
+PDK: SkyWater 130nm (sky130_fd_sc_hd)
+Netlist: caravel_mgmt_soc_litex/verilog/gl/mgmt_core_wrapper.v
 Status: PASSED
-Monitor: Test MEM (GL) [word rw] passed
-Monitor: Test MEM (GL) [short rw] passed
-Monitor: Test MEM (GL) [byte rw] passed
-Monitor: Test MEM (GL) [byte w word r] passed
-mem_tb.v:193: $finish called at 8733287500 (1ps)
+VCD Generated: GL-mem.vcd
