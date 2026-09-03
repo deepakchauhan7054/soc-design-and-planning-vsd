@@ -1,0 +1,6 @@
+--- Caravel GLS Test: sysctrl ---
+PDK: SkyWater 130nm (sky130_fd_sc_hd)
+Netlist: caravel/verilog/gl/caravel.v, caravel/verilog/gl/__user_project_wrapper.v
+Status: FAILED (Timeout)
+VCD Generated: GL-sysctrl.vcd
+Note: Simulation cycle timeout triggered waiting on clock divider prescaler output.

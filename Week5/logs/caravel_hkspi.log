@@ -1,0 +1,6 @@
+--- Caravel GLS Test: hkspi ---
+PDK: SkyWater 130nm (sky130_fd_sc_hd)
+Netlist: caravel/verilog/gl/caravel.v, caravel/verilog/gl/__user_project_wrapper.v
+Status: PASSED
+VCD Generated: GL-hkspi.vcd
+Note: Housekeeping SPI interface operational; verified reads for registers 0 to 18.

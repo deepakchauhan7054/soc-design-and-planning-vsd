@@ -1,0 +1,6 @@
+--- Caravel GLS Test: gpio_mgmt ---
+PDK: SkyWater 130nm (sky130_fd_sc_hd)
+Netlist: caravel/verilog/gl/caravel.v, caravel/verilog/gl/__user_project_wrapper.v
+Status: PASSED
+VCD Generated: GL-gpio_mgmt.vcd
+Note: Management GPIO bidirectional outputs, looping patterns, and readbacks passed.

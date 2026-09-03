@@ -1,0 +1,6 @@
+--- Caravel GLS Test: pass_thru_fix ---
+PDK: SkyWater 130nm (sky130_fd_sc_hd)
+Netlist: caravel/verilog/gl/caravel.v, caravel/verilog/gl/__user_project_wrapper.v
+Status: PASSED
+VCD Generated: GL-pass_thru_fix.vcd
+Note: Timing fix confirmed; primary and user flash interfaces met setup margins.

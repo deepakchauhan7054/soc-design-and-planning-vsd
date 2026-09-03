@@ -1,0 +1,6 @@
+--- Caravel GLS Test: spi_master ---
+PDK: SkyWater 130nm (sky130_fd_sc_hd)
+Netlist: caravel/verilog/gl/caravel.v, caravel/verilog/gl/__user_project_wrapper.v
+Status: PASSED
+VCD Generated: GL-spi_master.vcd
+Note: Master SPI serialized data bytes verified against expected payload stream.

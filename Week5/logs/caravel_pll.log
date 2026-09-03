@@ -1,0 +1,6 @@
+--- Caravel GLS Test: pll ---
+PDK: SkyWater 130nm (sky130_fd_sc_hd)
+Netlist: caravel/verilog/gl/caravel.v, caravel/verilog/gl/__user_project_wrapper.v
+Status: FAILED (Mismatch)
+VCD Generated: GL-pll.vcd
+Note: Core clock count did not track frequency transition after PLL switch assertion.

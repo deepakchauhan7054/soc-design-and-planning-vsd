@@ -1,0 +1,6 @@
+--- Caravel GLS Test: user_pass_thru ---
+PDK: SkyWater 130nm (sky130_fd_sc_hd)
+Netlist: caravel/verilog/gl/caravel.v, caravel/verilog/gl/__user_project_wrapper.v
+Status: PASSED
+VCD Generated: GL-user_pass_thru.vcd
+Note: User and primary flash data met setup time; pass-through functional check passed.
