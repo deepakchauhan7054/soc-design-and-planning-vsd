@@ -1,28 +1,91 @@
-# Week 5: Gate-Level Simulation (GLS) & Verification
+# Week 5: SoC Verification Waveforms & Analysis
 
-This directory contains the gate-level simulation (GLS) test suite, flow modifications, waveform captures, execution logs, and verification documentation for the integrated Caravel SoC and standalone management submodules.
-
----
-
-## Documentation Sections
-
-1. **[Phase 1 & Phase 2: GLS Setup & Makefile Modifications](makefile_changes.md)**
-   * Gate-level netlist integration (`__user_project_wrapper.v`, `caravel.v`, SkyWater 130nm library models).
-   * Compilation definitions (`-DFUNCTIONAL`, `-DGL`, `-DUSE_POWER_PINS`, `-DUNIT_DELAY=#1`).
-   * Hex address remapping fixes for SPI flash execution offset (`@1000` to `@0000`).
-
-2. **[Standalone GLS Verification Results](standalone_gls_results.md)**
-   * Core submodule level verification targeting `mgmt_core_wrapper`.
-   * Execution of standalone peripherals (GPIO, Memory, UART, SPI Master, Timers, IRQ).
-
-3. **[Caravel Integrated GLS Results](caravel_gls_results.md)**
-   * Full-chip SoC simulation results across 12 target testbenches.
-   * Comparative RTL vs. GLS status matrix and terminal execution logs.
+This document provides visual waveform logs and timing analysis for standalone management SoC tests and Caravel chip-level simulations.
 
 ---
 
-## Directory Organization
+## 1. Standalone SoC Simulations
 
-* `logs/`: Individual execution log files detailing test output and assertions.
-* `screenshots/`: GTKWave inspection and terminal verification captures.
-* `waveforms/`: Renamed, sequential gate-level simulation waveform captures.
+### 01. Standalone GPIO Management
+![Standalone GPIO Management](waveforms/01_standalone_gpio_mgmt_waveform.png)
+*Verifies bidirectional data toggling and output driver transitions directly on the standalone SoC GPIO pins.*
+
+---
+
+### 02. Standalone Memory
+![Standalone Memory](waveforms/02_standalone_mem_waveform.png)
+*Validates Wishbone bus read/write cycles, address decoding, and data bus stability during on-chip memory access.*
+
+---
+
+### 03. Standalone UART
+![Standalone UART](waveforms/03_standalone_uart_waveform.png)
+*Captures serial transmission frames, baud rate timing synchronization, and loopback data integrity.*
+
+---
+
+### 04. Standalone SPI Master
+![Standalone SPI Master](waveforms/04_standalone_spi_master_waveform.png)
+*Verifies serial clock generation (SCK), chip-select asserts (CSB), and serial byte shifts on MOSI/MISO lines.*
+
+---
+
+## 2. Caravel Chip-Level Simulations
+
+### 05. Caravel User Pass-Thru
+![Caravel User Pass-Thru](waveforms/05_caravel_gl_user_pass_thru_waveform.png)
+*Monitors the housekeeping SPI switching into direct pass-through mode to fetch instructions from external SPI flash.*
+
+---
+
+### 06. Caravel GPIO Management
+![Caravel GPIO Management](waveforms/06_caravel_gl_gpio_mgmt_waveform.png)
+*Checks the Caravel management processor driving the chip-level GPIO pads through programmed blink sequences.*
+
+---
+
+### 07. Caravel UART
+![Caravel UART](waveforms/07_caravel_gl_uart_waveform.png)
+*Confirms full-system serial communication by monitoring TX/RX pin activity through the Caravel I/O pad ring.*
+
+---
+
+### 08. Caravel Memory
+![Caravel Memory](waveforms/08_caravel_gl_mem_waveform.png)
+*Examines system-level memory interface timing, verifying byte enables and word-level data transfers inside the harness.*
+
+---
+
+### 09. Caravel SPI Master
+![Caravel SPI Master](waveforms/09_caravel_gl_spi_master_waveform.png)
+*Validates the SPI master controller communicating with external peripherals routed through the chip boundary pins.*
+
+---
+
+### 10. Caravel SRAM Execution
+![Caravel SRAM Execution](waveforms/10_caravel_gl_sram_exec_waveform.png)
+*Verifies instruction fetch requests, program counter progression, and execution timing directly out of dedicated SRAM.*
+
+---
+
+### 11. Caravel Housekeeping SPI
+![Caravel Housekeeping SPI](waveforms/11_caravel_gl_hkspi_waveform.png)
+*Tracks register read and write cycles across housekeeping control registers (0 to 18) via the dedicated SPI interface.*
+
+---
+
+### 12. Caravel Housekeeping SPI Power
+![Caravel Housekeeping SPI Power](waveforms/12_caravel_gl_hkspi_power_waveform.png)
+*Ensures correct logical register behavior and signal propagation across simulated power domains and supply rails.*
+
+---
+
+### 13. Caravel Pull-Up / Pull-Down
+![Caravel Pull-Up / Pull-Down](waveforms/13_caravel_gl_pullupdown_waveform.png)
+*Monitors GPIO pad weak pull-up and pull-down configurations under programmable register drive states.*
+
+---
+
+### 14. Caravel Pass-Thru Fix
+![Caravel Pass-Thru Fix](waveforms/14_caravel_gl_pass_thru_fix_waveform.png)
+*Validates that setup and hold timing margins are satisfied on external flash lines during pass-through operations.*
