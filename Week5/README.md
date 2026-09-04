@@ -8,19 +8,19 @@ This document provides visual waveform logs and timing analysis for standalone m
 
 ### 01. Standalone GPIO Management
 ![Standalone GPIO Management](waveforms/01_standalone_gpio_mgmt_waveform.png)
-*Verifies bidirectional data toggling and output driver transitions directly on the standalone SoC GPIO pins.*
+*Monitors clock synchronization, test status updates on checkbits[15:0], and serial flash byte transitions on spi_out[7:0] during gate-level standalone GPIO management execution.*
 
 ---
 
 ### 02. Standalone Memory
 ![Standalone Memory](waveforms/02_standalone_mem_waveform.png)
-*Validates Wishbone bus read/write cycles, address decoding, and data bus stability during on-chip memory access.*
+*Verifies standalone SRAM read/write integrity by observing reset de-assertion (RSTB), stable system clock, and sequential test-pass milestone flags on checkbits[15:0] (A040, A020, A010, A050).*
 
 ---
 
 ### 03. Standalone UART
 ![Standalone UART](waveforms/03_standalone_uart_waveform.png)
-*Captures serial transmission frames, baud rate timing synchronization, and loopback data integrity.*
+*Confirms gate-level UART transmitter timing and frame serialization via active pulses on uart_tx and test completion flags on checkbits[15:0]*
 
 ---
 
