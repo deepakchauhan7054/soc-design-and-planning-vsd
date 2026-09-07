@@ -1,0 +1,29 @@
+
+47. Printing statistics.
+
+=== housekeeping_spi ===
+
+   Number of wires:                209
+   Number of wire bits:            258
+   Number of public wires:          27
+   Number of public wire bits:      70
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                241
+     $_ANDNOT_                      50
+     $_AND_                          7
+     $_DFFE_NP0P_                    9
+     $_DFFE_PP0P_                   30
+     $_DFF_NP1_                      1
+     $_DFF_PP0_                      4
+     $_DFF_PP1_                      1
+     $_MUX_                         30
+     $_NAND_                         8
+     $_NOR_                          4
+     $_NOT_                         10
+     $_ORNOT_                        8
+     $_OR_                          69
+     $_XNOR_                         2
+     $_XOR_                          8
+

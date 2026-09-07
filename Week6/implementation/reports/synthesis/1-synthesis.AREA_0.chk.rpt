@@ -1,0 +1,30 @@
+
+60. Executing CHECK pass (checking for obvious problems).
+Checking module housekeeping_spi...
+Warning: Wire housekeeping_spi.\wrstb is used but has no driver.
+Warning: Wire housekeeping_spi.\sdoenb is used but has no driver.
+Warning: Wire housekeeping_spi.\rdstb is used but has no driver.
+Warning: Wire housekeeping_spi.\pass_thru_user_reset is used but has no driver.
+Warning: Wire housekeeping_spi.\pass_thru_user_delay is used but has no driver.
+Warning: Wire housekeeping_spi.\pass_thru_user is used but has no driver.
+Warning: Wire housekeeping_spi.\pass_thru_mgmt_reset is used but has no driver.
+Warning: Wire housekeeping_spi.\pass_thru_mgmt_delay is used but has no driver.
+Warning: Wire housekeeping_spi.\pass_thru_mgmt is used but has no driver.
+Warning: Wire housekeeping_spi.\odata [7] is used but has no driver.
+Warning: Wire housekeeping_spi.\odata [6] is used but has no driver.
+Warning: Wire housekeeping_spi.\odata [5] is used but has no driver.
+Warning: Wire housekeeping_spi.\odata [4] is used but has no driver.
+Warning: Wire housekeeping_spi.\odata [3] is used but has no driver.
+Warning: Wire housekeeping_spi.\odata [2] is used but has no driver.
+Warning: Wire housekeeping_spi.\odata [1] is used but has no driver.
+Warning: Wire housekeeping_spi.\odata [0] is used but has no driver.
+Warning: Wire housekeeping_spi.\oaddr [7] is used but has no driver.
+Warning: Wire housekeeping_spi.\oaddr [6] is used but has no driver.
+Warning: Wire housekeeping_spi.\oaddr [5] is used but has no driver.
+Warning: Wire housekeeping_spi.\oaddr [4] is used but has no driver.
+Warning: Wire housekeeping_spi.\oaddr [3] is used but has no driver.
+Warning: Wire housekeeping_spi.\oaddr [2] is used but has no driver.
+Warning: Wire housekeeping_spi.\oaddr [1] is used but has no driver.
+Warning: Wire housekeeping_spi.\oaddr [0] is used but has no driver.
+Warning: Wire housekeeping_spi.\SDO is used but has no driver.
+Found and reported 26 problems.
