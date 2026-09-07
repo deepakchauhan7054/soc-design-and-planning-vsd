@@ -39,3 +39,8 @@ All tapeout-ready manufacturing files are organized in `Week6/signoff_deliverabl
 - `housekeeping_spi.spice`: Extracted layout SPICE netlist used for LVS.
 - `housekeeping_spi.sdf`: Standard Delay Format model for Gate-Level Simulation (GLS).
 - `housekeeping_spi.lib`: Liberty timing library file.
+
+### GLS Waveform Verification
+![GLS Waveform](verif/gls_waveform.png)
+- **Write Transaction**: Successful capture of register address `0x05` and data byte `0x3C`.
+- **Read Transaction**: Command `0x40` initiates readback targeting address `0x05`.
